@@ -5,3 +5,5 @@
 # Exclude everything in projects folder except .gitkeep
 projects/*
 !projects/.gitkeep 
+# Exclude common.yaml file
+settings/common.yaml
