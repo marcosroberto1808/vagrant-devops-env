@@ -7,3 +7,4 @@ projects/*
 !projects/.gitkeep 
 # Exclude common.yaml file
 settings/*
+!settings/.gitkeep 
