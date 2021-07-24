@@ -6,4 +6,4 @@
 projects/*
 !projects/.gitkeep 
 # Exclude common.yaml file
-settings/common.yaml
+settings/*
