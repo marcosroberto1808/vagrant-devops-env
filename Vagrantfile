@@ -80,6 +80,11 @@ Vagrant.configure("2") do |config|
     # Enable external SSH With Password
     config.vm.provision "shell", path: "./scripts/enable_ssh.sh", run: "once"
 
+    # Setup the git config --global vars
+    config.vm.provision "shell", inline: "git config --global user.name #{settings['git_email']}", run: "once", privileged: false
+    config.vm.provision "shell", inline: "git config --global user.email #{settings['git_email']}", run: "once", privileged: false
+    config.vm.provision "shell", inline: "git config --list", run: "once", privileged: false
+
     # Install docker and docker-compose
     config.vm.provision :docker
     config.vm.provision :docker_compose

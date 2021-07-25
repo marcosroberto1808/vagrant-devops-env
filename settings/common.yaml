@@ -5,6 +5,9 @@
 user_name: "Marcos Roberto"
 local_timezone: "America/Fortaleza"
 
+# github settings
+git_email: "marcosroberto1808@gmail.com"
+
 # Vagrant Box Virtual Machine Settings
 devops_vm_distro_version: "ubuntu/focal64" # Ubuntu 20.04 LTS
 devops_vm_box_name: "my-devops-env"
