@@ -1,4 +1,4 @@
-# DevOps Local Environment using Vagrant
+# DevOps Local Environment Example using Vagrant
 ## How to use
 
 ### Requirements
@@ -6,8 +6,9 @@
 * Vagrant - https://www.vagrantup.com/downloads
 
 Pre-Installed vagrant plugins:
- - [x] vagrant-timezone - To fix timezone inside the vagrant box
- - [x] vagrant-docker-compose - To install docker and docker-compose inside the vagrant box
+ - [x] vagrant-timezone - Fix timezone in all boxes
+ - [x] vagrant-docker-compose - Install docker and docker-compose in all boxes
+ - [x] enable_ssh.sh script - Fix external ssh access in all boxes
 
 ### Before starting
 
@@ -15,18 +16,26 @@ Edit the settings/common.yaml file with your personal configuration.
 
 ### How to start
 
-To start the vagrant box:
+To start all 3 vagrant boxes (devops, jenkins, dev) at once:
 
 `vagrant up`
 
-To access the vagrant box:
+To start specific box:
 
-`vagrant ssh`
+`vagrant up devops`
 
-To destroy the vagrant box:
+To access specific box:
+
+`vagrant ssh devops`
+
+To destroy all vagrant boxes:
 
 `vagrant destroy`
 
-To stop the vagrant box:
+To destroy specific box:
+
+`vagrant destroy devops`
+
+To stop all vagrant boxes:
 
 `vagrant halt`

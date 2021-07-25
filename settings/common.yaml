@@ -2,11 +2,23 @@
 ## Change with your personal informations and local paths
 
 # Locale settings
-user_name: "Your Name"
+user_name: "Marcos Roberto"
 local_timezone: "America/Fortaleza"
 
 # Vagrant Box Virtual Machine Settings
-vm_distro_version: "ubuntu/focal64" # Ubuntu 20.04 LTS
-vm_box_name: "MyDevOpsEnv"
-vm_memory_size: 4096
-vm_cpu_count:  4
+devops_vm_distro_version: "ubuntu/focal64" # Ubuntu 20.04 LTS
+devops_vm_box_name: "my-devops-env"
+devops_vm_memory_size: 4096
+devops_vm_cpu_count:  4
+
+# Jenkins Box Virtual Machine Settings
+jenkins_vm_distro_version: "ubuntu/focal64" # Ubuntu 20.04 LTS
+jenkins_vm_box_name: "my-jenkins-env"
+jenkins_vm_memory_size: 2048
+jenkins_vm_cpu_count:  4
+
+# Dev Server Box Virtual Machine Settings
+dev_vm_distro_version: "ubuntu/focal64" # Ubuntu 20.04 LTS
+dev_vm_box_name: "my-dev-env"
+dev_vm_memory_size: 2048
+dev_vm_cpu_count:  4
