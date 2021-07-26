@@ -18,8 +18,9 @@ Vagrant.configure("2") do |config|
         v.memory = settings['devops_vm_memory_size']    
         v.cpus = settings['devops_vm_cpu_count']   
       end
+
       # Forward jenkins port to the vagrant box 
-      devops.vm.network "private_network", ip: "192.168.50.11", hostname: true
+      devops.vm.network "private_network", ip: settings['devops_ip'], hostname: true
       devops.vm.network "forwarded_port", guest: 80, host: 80
 
     end
@@ -35,10 +36,23 @@ Vagrant.configure("2") do |config|
         v.memory = settings['jenkins_vm_memory_size']    
         v.cpus = settings['jenkins_vm_cpu_count']   
       end
+
       # Forward jenkins port to the vagrant box
-      jenkins.vm.network "private_network", ip: "192.168.50.12", hostname: true
+      jenkins.vm.network "private_network", ip: settings['jenkins_ip'], hostname: true
       jenkins.vm.network "forwarded_port", guest: 8080, host: 8080
       jenkins.vm.network "forwarded_port", guest: 50000, host: 50000
+
+      # Install java
+      jenkins.vm.provision "shell", inline: "sudo apt install default-jre -y", privileged: false
+      jenkins.vm.provision "shell", inline: "sudo apt install default-jdk -y", privileged: false
+      
+      # Install Jenkins
+      jenkins.vm.provision "shell", path: "./scripts/install_jenkins.sh", run: "once"
+      
+      # Install Ansible
+      jenkins.vm.provision "shell", inline: "sudo apt install ansible sshpass -y", privileged: false
+      jenkins.vm.provision "file", source: "settings/ansible_hosts", destination: "/home/vagrant/"
+      jenkins.vm.provision "shell",  inline: "sudo mv /home/vagrant/ansible_hosts /etc/ansible/hosts", privileged: false    
 
     end
 
@@ -54,7 +68,7 @@ Vagrant.configure("2") do |config|
         v.cpus = settings['dev_vm_cpu_count']   
       end
       # Forward dev port to the vagrant box
-      dev.vm.network "private_network", ip: "192.168.50.13", hostname: true
+      dev.vm.network "private_network", ip: settings['dev_ip'], hostname: true
       dev.vm.network "forwarded_port", guest: 80, host: 8081
 
     end

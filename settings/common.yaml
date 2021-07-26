@@ -13,15 +13,18 @@ devops_vm_distro_version: "ubuntu/focal64" # Ubuntu 20.04 LTS
 devops_vm_box_name: "my-devops-env"
 devops_vm_memory_size: 4096
 devops_vm_cpu_count:  4
+devops_ip: 192.168.50.11
 
 # Jenkins Box Virtual Machine Settings
 jenkins_vm_distro_version: "ubuntu/focal64" # Ubuntu 20.04 LTS
 jenkins_vm_box_name: "my-jenkins-env"
 jenkins_vm_memory_size: 2048
 jenkins_vm_cpu_count:  4
+jenkins_ip: 192.168.50.12
 
 # Dev Server Box Virtual Machine Settings
 dev_vm_distro_version: "ubuntu/focal64" # Ubuntu 20.04 LTS
 dev_vm_box_name: "my-dev-env"
 dev_vm_memory_size: 2048
 dev_vm_cpu_count:  4
+dev_ip: 192.168.50.13
