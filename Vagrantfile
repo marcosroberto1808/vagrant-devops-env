@@ -4,6 +4,7 @@
 # Using Yaml file to load personal settings
 require 'yaml'
 settings = YAML.load_file 'settings/common.yaml'  # Edit settings/common.yaml values before vagrant up
+timestamp = Time.now.strftime("%d%m%Y_%H%M")
 
 Vagrant.configure("2") do |config|
 
@@ -14,7 +15,7 @@ Vagrant.configure("2") do |config|
       devops.vm.hostname  = settings['devops_vm_box_name'] + ".local"
       # VirtualBox configurations - Change values in settings/common.yaml 
       devops.vm.provider "virtualbox" do |v|
-        v.name = settings['devops_vm_box_name'] + " ( " + settings['user_name'] + " )"
+        v.name = settings['devops_vm_box_name'] + " ( " + settings['user_name'] + " )" + " #{timestamp}"
         v.memory = settings['devops_vm_memory_size']    
         v.cpus = settings['devops_vm_cpu_count']   
       end
@@ -32,7 +33,7 @@ Vagrant.configure("2") do |config|
       jenkins.vm.hostname  = settings['jenkins_vm_box_name'] + ".local"
       # VirtualBox configurations - Change values in settings/common.yaml 
       jenkins.vm.provider "virtualbox" do |v|
-        v.name = settings['jenkins_vm_box_name'] + " ( " + settings['user_name'] + " )"
+        v.name = settings['jenkins_vm_box_name'] + " ( " + settings['user_name'] + " )"+ " #{timestamp}"
         v.memory = settings['jenkins_vm_memory_size']    
         v.cpus = settings['jenkins_vm_cpu_count']   
       end
@@ -63,7 +64,7 @@ Vagrant.configure("2") do |config|
       dev.vm.hostname  = settings['dev_vm_box_name'] + ".local"
       # VirtualBox configurations - Change values in settings/common.yaml 
       dev.vm.provider "virtualbox" do |v|
-        v.name = settings['dev_vm_box_name'] + " ( " + settings['user_name'] + " )"
+        v.name = settings['dev_vm_box_name'] + " ( " + settings['user_name'] + " )"+ " #{timestamp}"
         v.memory = settings['dev_vm_memory_size']    
         v.cpus = settings['dev_vm_cpu_count']   
       end
