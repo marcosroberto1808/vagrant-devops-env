@@ -13,6 +13,8 @@ sudo systemctl start jenkins
 
 sleep 5
 
+echo " "
+echo " "
 echo "### Inicial Admin Password ##"
 echo " "
 echo " "
@@ -20,3 +22,5 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 echo " "
 echo " "
 echo "#############################"
+echo " "
+echo " "

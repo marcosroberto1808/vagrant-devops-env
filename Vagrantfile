@@ -60,11 +60,12 @@ Vagrant.configure("2") do |config|
       jenkins.vm.provision "shell",  inline: "sudo chmod +wx socketxp ", privileged: false 
       jenkins.vm.provision "shell",  inline: "sudo mv socketxp /usr/local/bin", privileged: false 
       jenkins.vm.provision "file", source: "settings/socketxp.json", destination: "/home/vagrant/" 
+      jenkins.vm.provision "shell",  inline: "socketxp login #{settings['socketxp_token']}", privileged: false 
       jenkins.vm.provision "shell",  inline: "sed -i -e 's/SOCKETXP_TOKEN/#{settings['socketxp_token']}/' /home/vagrant/socketxp.json", privileged: false 
       jenkins.vm.provision "shell",  inline: "sudo socketxp service install --config /home/vagrant/socketxp.json", privileged: false 
-      jenkins.vm.provision "shell",  inline: "sudo systemctl daemon-reload && sudo systemctl enable socketxp && sudo systemctl restart socketxp", privileged: false 
-      jenkins.vm.provision "shell",  inline: "socketxp tunnel ls", privileged: false 
-      
+      jenkins.vm.provision "shell",  inline: "sudo systemctl enable socketxp && sudo systemctl start socketxp", privileged: false
+      jenkins.vm.provision "shell",  inline: "sleep 10 && echo " " && socketxp tunnel ls | grep -B 2 -A 2 URL", privileged: false, run: "always"
+
     end
 
     # Dev box configuration
@@ -86,10 +87,7 @@ Vagrant.configure("2") do |config|
 
     ## Global boxes config
     # Install Required plugins:
-    VAGRANT_PLUGINS = [
-      "vagrant-timezone",
-      "vagrant-docker-compose"
-      ]
+    VAGRANT_PLUGINS = %w[vagrant-timezone vagrant-docker-compose]
     VAGRANT_PLUGINS.each do |plugin|
       unless Vagrant.has_plugin?("#{plugin}")
         system("vagrant plugin install #{plugin}")
