@@ -2,14 +2,14 @@
 ## Change with your personal informations and local paths
 
 # Locale settings
-user_name: "Marcos Roberto"
+user_name: "Your Name"
 local_timezone: "America/Fortaleza"
 
 # github settings
-git_email: "marcosroberto1808@gmail.com"
+git_email: "your_git@email.com"
 
 # socketxp settings
-socketxp_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzAwNzg0MzMsImlkIjoibWFyY29zcm9iZXJ0bzE4MDhAZ21haWwuY29tIn0.5rKYW5mLMAMmheUPGKIdTNCEyRJRdx2RRTDuHR2tOMg
+socketxp_token: SOCKETXP_TOKEN
 
 # Vagrant Box Virtual Machine Settings
 devops_vm_distro_version: "ubuntu/focal64" # Ubuntu 20.04 LTS
