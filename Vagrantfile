@@ -53,8 +53,18 @@ Vagrant.configure("2") do |config|
       # Install Ansible
       jenkins.vm.provision "shell", inline: "sudo apt install ansible sshpass -y", privileged: false
       jenkins.vm.provision "file", source: "settings/ansible_hosts", destination: "/home/vagrant/"
-      jenkins.vm.provision "shell",  inline: "sudo mv /home/vagrant/ansible_hosts /etc/ansible/hosts", privileged: false    
+      jenkins.vm.provision "shell",  inline: "sudo mv /home/vagrant/ansible_hosts /etc/ansible/hosts", privileged: false 
 
+      # Install SocketXP
+      jenkins.vm.provision "shell",  inline: "sudo curl -O https://portal.socketxp.com/download/linux/socketxp", privileged: false 
+      jenkins.vm.provision "shell",  inline: "sudo chmod +wx socketxp ", privileged: false 
+      jenkins.vm.provision "shell",  inline: "sudo mv socketxp /usr/local/bin", privileged: false 
+      jenkins.vm.provision "file", source: "settings/socketxp.json", destination: "/home/vagrant/" 
+      jenkins.vm.provision "shell",  inline: "sed -i -e 's/SOCKETXP_TOKEN/#{settings['socketxp_token']}/' /home/vagrant/socketxp.json", privileged: false 
+      jenkins.vm.provision "shell",  inline: "sudo socketxp service install --config /home/vagrant/socketxp.json", privileged: false 
+      jenkins.vm.provision "shell",  inline: "sudo systemctl daemon-reload && sudo systemctl enable socketxp && sudo systemctl restart socketxp", privileged: false 
+      jenkins.vm.provision "shell",  inline: "socketxp tunnel ls", privileged: false 
+      
     end
 
     # Dev box configuration

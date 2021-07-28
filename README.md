@@ -4,11 +4,15 @@
 ### Requirements
 * VirtualBox - https://www.virtualbox.org/wiki/Downloads
 * Vagrant - https://www.vagrantup.com/downloads
+* GitHub Account - https://github.com
+* SocketXP Account - https://www.socketxp.com
+
 
 Pre-Installed vagrant plugins:
  - [x] vagrant-timezone - Fix timezone in all boxes
  - [x] vagrant-docker-compose - Install docker and docker-compose in all boxes
  - [x] enable_ssh.sh script - Fix external ssh access in all boxes
+ - [x] install_jenkins.sh script - Install jenkins
 
 ### Before starting
 
