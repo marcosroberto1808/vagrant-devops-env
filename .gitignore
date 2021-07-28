@@ -1,7 +1,8 @@
 # Ignore Vagrant temp folder
 .vagrant
-# Ignore vscode temp folder
+# Ignore code editors temp folder
 .vscode
+.idea
 # Exclude everything in projects folder except .gitkeep
 projects/*
 !projects/.gitkeep 
