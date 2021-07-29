@@ -1,7 +1,7 @@
 # DevOps Local Environment Example using Vagrant
 ## How to use
 
-### Projects sample used in the Jenkins pipeline
+### Project samples used in the Jenkins pipeline
 
 #### Simple HTML website example
 https://github.com/marcosroberto1808/mywebsite-docker.git
