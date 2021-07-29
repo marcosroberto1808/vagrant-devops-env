@@ -81,7 +81,10 @@ Vagrant.configure("2") do |config|
       end
       # Forward dev port to the vagrant box
       dev.vm.network "private_network", ip: settings['dev_ip'], hostname: true
+      # Website project ports
       dev.vm.network "forwarded_port", guest: 80, host: 8081
+      #Grafana ports
+      dev.vm.network "forwarded_port", guest: 3000, host: 3000
 
     end
 

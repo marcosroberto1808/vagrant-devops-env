@@ -1,14 +1,22 @@
 # DevOps Local Environment Example using Vagrant
 ## How to use
 
+### Projects sample used in the Jenkins pipeline
+
+#### Simple HTML website example
+https://github.com/marcosroberto1808/mywebsite-docker.git
+
+#### Grafana monitoring tool
+https://github.com/marcosroberto1808/grafana-docker.git
+
+
 ### Requirements
 * VirtualBox - https://www.virtualbox.org/wiki/Downloads
 * Vagrant - https://www.vagrantup.com/downloads
 * GitHub Account - https://github.com
 * SocketXP Account - https://www.socketxp.com
 
-
-Pre-Installed vagrant plugins:
+Custom Installed vagrant plugins and scripts:
  - [x] vagrant-timezone - Fix timezone in all boxes
  - [x] vagrant-docker-compose - Install docker and docker-compose in all boxes
  - [x] enable_ssh.sh script - Fix external ssh access in all boxes
