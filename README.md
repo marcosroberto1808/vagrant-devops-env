@@ -61,3 +61,37 @@ To destroy specific box:
 To stop all vagrant boxes:
 
 `vagrant halt`
+
+### Configure Jenkins
+* Access jenkins box terminal with the command:
+`vagrant ssh jenkins`
+* Get the initialAdminPassword using this command:
+`cat /var/lib/jenkins/secrets/initialAdminPassword`
+* Access the jenkins login page and configure admin user and log in in the jenkins  
+`http://localhost:8080`
+* Install Ansible plugin 
+`Manage Jenkins > Manage Plugins > Available > Search for Ansible`
+* Configure Ansible plugin
+`Manage Jenkins > Global Tool Configuration > Ansible > Add Ansible > Insert Name ansible and Path /usr/bin > Save`
+* Generate jenkins admin token to use in github webhook
+`Manage Jenkins > Manage Users > Ansible > Choose admin > Configure > Add new Token and copy it > Save`
+### Configure GitHub webhooks
+* Access jenkins box terminal with the command:
+`vagrant ssh jenkins`
+* Get the SocketXP Public URL using this command:
+`socketxp tunnel ls`
+* Access the GitHub project, in the settings page, and configure the WebHook for each project with:
+`Payload  URL: https://SocketXP_Public_URL.socketxp.com/github-webhook/`
+`Secret: the jenkins Token from admin user`
+  
+### Configure the Pipeline in Jenkins using the sample projects
+* mywebsite-docker:
+`Dashboard > New Item > name: mywebsite-docker > Choose Pipeline and hit OK`
+`Check GitHub project and put the git project url: https://github.com/marcosroberto1808/mywebsite-docker.git`
+`Check GitHub hook trigger for GITScm polling and choose Pipeline script from SCM and change SCM to git`
+`add the repository URL with https://github.com/marcosroberto1808/mywebsite-docker.git and hit Save`
+* grafana-docker:
+`Dashboard > New Item > name: grafana-docker > Choose Pipeline and hit OK`
+`Check GitHub project and put the git project url: https://github.com/marcosroberto1808/grafana-docker.git`
+`Check GitHub hook trigger for GITScm polling and choose Pipeline script from SCM and change SCM to git`
+`add the repository URL with https://github.com/marcosroberto1808/grafana-docker.git and hit Save`
