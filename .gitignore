@@ -8,4 +8,6 @@ projects/*
 !projects/.gitkeep 
 # Exclude common.yaml file
 settings/*
-!settings/.gitkeep 
+settings/common.yaml
+!settings/.gitkeep
+
