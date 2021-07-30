@@ -86,12 +86,16 @@ To stop all vagrant boxes:
   
 ### Configure the Pipeline in Jenkins using the sample projects
 * mywebsite-docker:
-`Dashboard > New Item > name: mywebsite-docker > Choose Pipeline and hit OK`
-`Check GitHub project and put the git project url: https://github.com/marcosroberto1808/mywebsite-docker.git`
-`Check GitHub hook trigger for GITScm polling and choose Pipeline script from SCM and change SCM to git`
-`add the repository URL with https://github.com/marcosroberto1808/mywebsite-docker.git and hit Save`
+```
+- Dashboard > New Item > name: mywebsite-docker > Choose Pipeline and hit OK
+- Check GitHub project and put the git project url: https://github.com/marcosroberto1808/mywebsite-docker.git
+- Check GitHub hook trigger for GITScm polling and choose Pipeline script from SCM and change SCM to git
+- add the repository URL with https://github.com/marcosroberto1808/mywebsite-docker.git and hit Save
+```
 * grafana-docker:
-`Dashboard > New Item > name: grafana-docker > Choose Pipeline and hit OK`
-`Check GitHub project and put the git project url: https://github.com/marcosroberto1808/grafana-docker.git`
-`Check GitHub hook trigger for GITScm polling and choose Pipeline script from SCM and change SCM to git`
-`add the repository URL with https://github.com/marcosroberto1808/grafana-docker.git and hit Save`
+```
+- Dashboard > New Item > name: grafana-docker > Choose Pipeline and hit OK
+- Check GitHub project and put the git project url: https://github.com/marcosroberto1808/grafana-docker.git
+- Check GitHub hook trigger for GITScm polling and choose Pipeline script from SCM and change SCM to git
+- add the repository URL with https://github.com/marcosroberto1808/grafana-docker.git and hit Save
+```
